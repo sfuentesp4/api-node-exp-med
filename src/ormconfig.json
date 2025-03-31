@@ -1,0 +1,13 @@
+[
+  {
+    "name": "default",
+    "type": "mssql",
+    "host": "3.15.40.56",
+    "port": 1433,
+    "username": "usrControlExpedienteMedico",
+    "password": "usrControlExpedienteMedico.25$",
+    "database": "",
+    "synchronize": false,
+    "entities": ["entities/*.js"]
+  }
+]
