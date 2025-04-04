@@ -9,6 +9,7 @@ import usuarioRoutes from './routes/usuario.routes';
 import authRoutes from './routes/auth.routes';
 import catalogoEstadosCitaRoutes from './routes/catalogoEstadosCita.routes';
 import catalogoEstadosOrdenLaboratorio from './routes/catalogoEstadosOrdenLaboratorio.routes';
+import catalogoDiagnosticos from './routes/catalogoDiagnosticos.routes';
 
 dotenv.config();
 
@@ -21,9 +22,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Rutas de la API
-app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/catalogo-estados-cita', catalogoEstadosCitaRoutes);
 app.use('/api/catalogo-estados-orden-laboratorio', catalogoEstadosOrdenLaboratorio);
+app.use('/api/catalogo-diagnosticos', catalogoDiagnosticos);
 
 export default app;

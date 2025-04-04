@@ -49,7 +49,11 @@ export class AuthController {
         { expiresIn: '1h' }
       );
 
-      res.json({ token });
+      usuario.contrasena = Buffer.alloc(0); // Limpia la contraseña antes de enviar la respuesta
+
+      // Devuelve el token y los datos del usuario (sin la contraseña)
+      res.json({ token, usuario });
+      
     } catch (error) {
       res.status(500).json({ mensaje: 'Error en la autenticación', error });
     }
