@@ -10,6 +10,9 @@ import authRoutes from './routes/auth.routes';
 import catalogoEstadosCitaRoutes from './routes/catalogoEstadosCita.routes';
 import catalogoEstadosOrdenLaboratorio from './routes/catalogoEstadosOrdenLaboratorio.routes';
 import catalogoDiagnosticos from './routes/catalogoDiagnosticos.routes';
+import catalogoGeneros from './routes/catalogoGeneros.routes'
+import catalogoEstadosFactura  from './routes/catalogoEstadosFactura.routes';
+import catalogoMedicamentos from './routes/catalogoMedicamentos.routes';
 
 dotenv.config();
 
@@ -27,5 +30,8 @@ app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/catalogo-estados-cita', catalogoEstadosCitaRoutes);
 app.use('/api/catalogo-estados-orden-laboratorio', catalogoEstadosOrdenLaboratorio);
 app.use('/api/catalogo-diagnosticos', catalogoDiagnosticos);
+app.use('/api/catalogo-generos', catalogoGeneros);
+app.use('/api/catalogo-estados-factura', catalogoEstadosFactura);
+app.use('/api/catalogo-medicamentos', catalogoMedicamentos);
 
 export default app;
