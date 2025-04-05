@@ -13,6 +13,8 @@ import catalogoDiagnosticos from './routes/catalogoDiagnosticos.routes';
 import catalogoGeneros from './routes/catalogoGeneros.routes'
 import catalogoEstadosFactura  from './routes/catalogoEstadosFactura.routes';
 import catalogoMedicamentos from './routes/catalogoMedicamentos.routes';
+import catalogoRoles from './routes/catalogoRoles.routes';
+import catalogoPruebasLaboratorio from './routes/catalogoPruebasLaboratorio.routes';
 
 dotenv.config();
 
@@ -33,5 +35,7 @@ app.use('/api/catalogo-diagnosticos', catalogoDiagnosticos);
 app.use('/api/catalogo-generos', catalogoGeneros);
 app.use('/api/catalogo-estados-factura', catalogoEstadosFactura);
 app.use('/api/catalogo-medicamentos', catalogoMedicamentos);
+app.use('/api/catalogo-roles', catalogoRoles);
+app.use('/api/catalogo-pruebas-laboratorio', catalogoPruebasLaboratorio);
 
 export default app;
