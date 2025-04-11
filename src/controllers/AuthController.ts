@@ -18,7 +18,7 @@ export class AuthController {
       // Se carga también la relación de rol, para incluirla en el token
       const usuario = await usuarioRepo.findOne({
         where: { nombreUsuario: nombreUsuario },
-        relations: ['rol'],
+        relations: ['rol', 'rol.rolesMenus.menu'],
       });
 
       if (!usuario) {

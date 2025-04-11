@@ -5,6 +5,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { RolesMenus } from "./RolesMenus";
 import { Usuarios } from "./Usuarios";
 
 @Index("PK__Catalogo__F92302D1E0E1947C", ["rolId"], { unique: true })
@@ -22,6 +23,9 @@ export class CatalogoRoles {
 
   @Column("datetime", { name: "FechaEliminacion", nullable: true })
   fechaEliminacion!: Date | null;
+
+  @OneToMany(() => RolesMenus, (rolesMenus) => rolesMenus.rol)
+  rolesMenus!: RolesMenus[];
 
   @OneToMany(() => Usuarios, (usuarios) => usuarios.rol)
   usuarios!: Usuarios[];
