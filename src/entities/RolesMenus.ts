@@ -1,14 +1,25 @@
-import { Column, Entity, Index, JoinColumn, ManyToOne } from "typeorm";
+import {
+  Column,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Menus } from "./Menus";
 import { CatalogoRoles } from "./CatalogoRoles";
 
-@Index("PK__RolesMen__E5BAEFF4A49171B1", ["rolId", "menuId"], { unique: true })
+@Index("PK_RolesMenus", ["roleMenuId"], { unique: true })
+@Index("UQ_RolesMenus_RolID_MenuID", ["rolId", "menuId"], { unique: true })
 @Entity("RolesMenus", { schema: "dbo" })
 export class RolesMenus {
-  @Column("int", { primary: true, name: "RolID" })
+  @PrimaryGeneratedColumn({ type: "int", name: "RoleMenuID" })
+  roleMenuId!: number;
+
+  @Column("int", { name: "RolID", unique: true })
   rolId!: number;
 
-  @Column("int", { primary: true, name: "MenuID" })
+  @Column("int", { name: "MenuID", unique: true })
   menuId!: number;
 
   @Column("bit", { name: "Activo", default: () => "(1)" })

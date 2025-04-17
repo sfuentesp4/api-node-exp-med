@@ -15,6 +15,8 @@ import catalogoEstadosFactura  from './routes/catalogoEstadosFactura.routes';
 import catalogoMedicamentos from './routes/catalogoMedicamentos.routes';
 import catalogoRoles from './routes/catalogoRoles.routes';
 import catalogoPruebasLaboratorio from './routes/catalogoPruebasLaboratorio.routes';
+import menus from './routes/menu.routes';
+import rolesMenus from './routes/rolesMenus.routes';
 
 dotenv.config();
 
@@ -37,5 +39,7 @@ app.use('/api/catalogo-estados-factura', catalogoEstadosFactura);
 app.use('/api/catalogo-medicamentos', catalogoMedicamentos);
 app.use('/api/catalogo-roles', catalogoRoles);
 app.use('/api/catalogo-pruebas-laboratorio', catalogoPruebasLaboratorio);
+app.use('/api/menu', menus);
+app.use('/api/roles-menus', rolesMenus); // Asegúrate de que esta ruta sea correcta y no esté duplicada
 
 export default app;
