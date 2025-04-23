@@ -14,14 +14,14 @@ import { SignosVitales } from "./SignosVitales";
 import { CatalogoRoles } from "./CatalogoRoles";
 
 @Index("PK__Usuarios__2B3DE79870E06B3E", ["usuarioId"], { unique: true })
-@Index("UQ__Usuarios__6B0F5AE042897040", ["nombreUsuario"], { unique: true })
+@Index("UQ__Usuarios__6B0F5AE042897040", ["correoElectronico"], { unique: true })
 @Entity("Usuarios", { schema: "dbo" })
 export class Usuarios {
   @PrimaryGeneratedColumn({ type: "int", name: "UsuarioID" })
   usuarioId!: number;
 
-  @Column("nvarchar", { name: "NombreUsuario", unique: true, length: 50 })
-  nombreUsuario!: string;
+  @Column("nvarchar", { name: "CorreoElectronico", unique: true, length: 50 })
+  correoElectronico!: string;
 
   @Column("varbinary", { name: "Contrasena", length: 256 })
   contrasena!: Buffer;

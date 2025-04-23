@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 // Define la interfaz para el payload del JWT
 interface JwtPayload {
   id: number;
-  nombreUsuario: string;
+  correoElectronico: string;
   rol: string;
   iat: number;
   exp: number;
