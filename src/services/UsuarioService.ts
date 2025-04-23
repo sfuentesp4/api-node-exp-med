@@ -20,13 +20,26 @@ export class UsuarioService {
 
   // Crea un nuevo usuario y encripta la contraseña
   static async crear(data: Partial<Usuarios>): Promise<Usuarios> {
+    
+    const usuarioRepo = AppDataSource.getRepository(Usuarios);
+  
+    // Validación: Verificar si el nombre de usuario ya está registrado
+    const usuarioExistente = await usuarioRepo.findOne({
+      where: { correoElectronico: data.correoElectronico },
+    });
+  
+    if (usuarioExistente) {
+      throw new Error("El nombre de usuario ya está en uso. Por favor, elige otro.");
+    }
+  
     if (!data.contrasena) {
       throw new Error("La contraseña es requerida");
     }
+  
     // Encriptar la contraseña
     const hashedPassword = await bcrypt.hash(data.contrasena.toString(), 10);
     data.contrasena = Buffer.from(hashedPassword);
-    const usuarioRepo = AppDataSource.getRepository(Usuarios);
+  
     const nuevoUsuario = usuarioRepo.create(data);
     return await usuarioRepo.save(nuevoUsuario);
   }

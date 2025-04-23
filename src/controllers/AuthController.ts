@@ -11,13 +11,13 @@ export class AuthController {
   static async login(req: Request, res: Response): Promise<void> {
     
     try {
-      const { nombreUsuario, contrasena } = req.body;
+      const { correoElectronico, contrasena } = req.body;
       
       // Busca el usuario por su nombre
       const usuarioRepo = AppDataSource.getRepository(Usuarios);
       // Se carga también la relación de rol, para incluirla en el token
       const usuario = await usuarioRepo.findOne({
-        where: { nombreUsuario: nombreUsuario },
+        where: { correoElectronico: correoElectronico },
         relations: ['rol', 'rol.rolesMenus.menu'],
       });
 
@@ -42,7 +42,7 @@ export class AuthController {
       const token = jwt.sign(
         {
           id: usuario.usuarioId,
-          nombreUsuario: usuario.nombreUsuario,
+          correoElectronico: usuario.correoElectronico,
           rol: usuario.rol.descripcion, // o el campo que identifique el rol
         },
         process.env.JWT_SECRET as string,

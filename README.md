@@ -1,9 +1,9 @@
 # api-node-exp-med
 
 
-
-
-
+git status
+git switch <tu-rama>
+git pull --rebase origin main
 
 # Publicar en producción
 1. Conectar a servidor vía Winscp y pegar los archivos nuevos (un api no se compila) en la carpeta /home/admin/Sitios/api

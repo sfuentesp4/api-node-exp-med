@@ -20,4 +20,6 @@ router.put("/:id", authenticateJWT, authorizeRoles("Administrador"), UsuarioCont
 // Ruta para eliminar (borrado lógico) un usuario.
 router.delete("/:id", authenticateJWT, authorizeRoles("Administrador"), UsuarioController.eliminarUsuario);
 
+router.post("/registro", UsuarioController.crearUsuario); // Ruta para registrar un nuevo usuario (sin autenticación previa)
+
 export default router;
