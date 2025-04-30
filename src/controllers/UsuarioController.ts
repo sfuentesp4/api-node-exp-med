@@ -22,6 +22,16 @@ export class UsuarioController {
     }
   }
 
+  // Registra un nuevo usuario (sin autenticación previa)
+  static async registrarUsuario(req: Request, res: Response): Promise<void> {
+    try {
+      const nuevoUsuario = await UsuarioService.crear(req.body);
+      res.status(201).json({ mensaje: "Usuario registrado exitosamente", usuario: nuevoUsuario });
+    } catch (error) {
+      res.status(500).json({ mensaje: "Error al registrar usuario", error });
+    }
+  }
+
   // Obtiene un usuario por su ID
   static async obtenerUsuarioPorId(req: Request, res: Response): Promise<void> {
     try {
