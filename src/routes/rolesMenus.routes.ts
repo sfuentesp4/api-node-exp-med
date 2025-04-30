@@ -11,5 +11,6 @@ router.post("/", authenticateJWT, authorizeRoles("Administrador"), RolesMenusCon
 router.get("/:id", authenticateJWT, authorizeRoles("Administrador"), RolesMenusController.obtenerPorId);
 router.put("/:id", authenticateJWT, authorizeRoles("Administrador"), RolesMenusController.actualizarRolMenu);
 router.delete("/:id", authenticateJWT, authorizeRoles("Administrador"), RolesMenusController.eliminarRolMenu);
+router.get("/rol/:rolId", authenticateJWT, authorizeRoles("Administrador"), RolesMenusController.obtenerPorRolId);
 
 export default router;
