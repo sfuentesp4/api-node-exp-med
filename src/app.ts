@@ -17,6 +17,7 @@ import catalogoRoles from './routes/catalogoRoles.routes';
 import catalogoPruebasLaboratorio from './routes/catalogoPruebasLaboratorio.routes';
 import menus from './routes/menu.routes';
 import rolesMenus from './routes/rolesMenus.routes';
+import citas from './routes/citas.routes';
 
 dotenv.config();
 
@@ -40,6 +41,7 @@ app.use('/api/catalogo-medicamentos', catalogoMedicamentos);
 app.use('/api/catalogo-roles', catalogoRoles);
 app.use('/api/catalogo-pruebas-laboratorio', catalogoPruebasLaboratorio);
 app.use('/api/menu', menus);
-app.use('/api/roles-menus', rolesMenus); // Asegúrate de que esta ruta sea correcta y no esté duplicada
+app.use('/api/roles-menus', rolesMenus);
+app.use('/api/citas', citas);
 
 export default app;
