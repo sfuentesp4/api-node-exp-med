@@ -12,3 +12,13 @@ git pull --rebase origin main
 4. pm2 flush solamente si es necesario.
 5. pm2 log
 
+
+# Actualizar BBDD
+
+1. Ejecutar el sigueinte comando:
+
+typeorm-model-generator -h 3.15.40.56 -d dbControlExpedienteMedico -p 1433 -u usrControlExpedienteMedico -x usrControlExpedienteMedico.25$ -e mssql -o ./src
+
+2. Ejecutar el .js para corregir null
+
+node add-non-null-assertions.js
