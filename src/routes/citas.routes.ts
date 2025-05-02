@@ -6,10 +6,10 @@ import { authorizeRoles } from "../middlewares/role.middleware"; // Middleware q
 const router = Router();
 
 // Rutas
-router.get("/", authenticateJWT, authorizeRoles("Administrador"), CitasController.obtenerTodos);
-router.post("/", authenticateJWT, authorizeRoles("","Administrador"), CitasController.crearCita);
-router.get("/:id", authenticateJWT, authorizeRoles("Administrador"), CitasController.obtenerPorId);
-router.put("/:id", authenticateJWT, authorizeRoles("Administrador"), CitasController.actualizarCita);
-router.delete("/:id", authenticateJWT, authorizeRoles("Administrador"), CitasController.eliminarCita);
+router.get("/", authenticateJWT, authorizeRoles("Administrador" , "Paciente"), CitasController.obtenerTodos);
+router.post("/", authenticateJWT, authorizeRoles("","Administrador" ,"Paciente"), CitasController.crearCita);
+router.get("/:id", authenticateJWT, authorizeRoles("Administrador", "Paciente"), CitasController.obtenerPorId);
+router.put("/:id", authenticateJWT, authorizeRoles("Administrador","Paciente"), CitasController.actualizarCita);
+router.delete("/:id", authenticateJWT, authorizeRoles("Administrador", "Paciente"), CitasController.eliminarCita);
 
 export default router;
