@@ -21,6 +21,9 @@ export class Citas {
   @Column("datetime", { name: "FechaHoraCita" })
   fechaHoraCita!: Date;
 
+  @Column("int", { name: "EstadoID" })
+  estadoId!: number;
+
   @Column("nvarchar", { name: "TipoServicio", length: 50 })
   tipoServicio!: string;
 
@@ -37,10 +40,7 @@ export class Citas {
   @Column("datetime", { name: "FechaEliminacion", nullable: true })
   fechaEliminacion!: Date | null;
 
-  @ManyToOne(
-    () => CatalogoEstadosCita,
-    (catalogoEstadosCita) => catalogoEstadosCita.citas
-  )
+  @ManyToOne(() => CatalogoEstadosCita, (catalogoEstadosCita) => catalogoEstadosCita.citas)
   @JoinColumn([{ name: "EstadoID", referencedColumnName: "estadoId" }])
   estado!: CatalogoEstadosCita;
 

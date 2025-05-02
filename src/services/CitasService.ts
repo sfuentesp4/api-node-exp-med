@@ -1,12 +1,12 @@
 import { AppDataSource } from "../config/AppDataSource";
 import { Citas } from "../entities/Citas";
-import{ CatalogoEstadosCita} from "../entities/CatalogoEstadosCita";
+
 
 export class CitasService {
 
     static async obtenerTodos(): Promise<Citas[]> {
         const citasRepo = AppDataSource.getRepository(Citas);
-        return await citasRepo.find({ relations: ["paciente", "doctor","estados"] });
+        return await citasRepo.find({ relations: ["paciente", "doctor"] });
     }
 
     static async crearCita(data: Partial<Citas>): Promise<Citas> {
