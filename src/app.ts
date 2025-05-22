@@ -20,6 +20,7 @@ import rolesMenus from './routes/rolesMenus.routes';
 import citas from './routes/citas.routes';
 import doctoresRoutes from './routes/doctores.routes';
 import pacientes from './routes/pacientes.routes';
+import Especialidades  from './routes/especialidades.routes';
 
 dotenv.config();
 
@@ -47,4 +48,5 @@ app.use('/api/roles-menus', rolesMenus);
 app.use('/api/citas', citas);
 app.use('/api/doctores', doctoresRoutes);
 app.use('/api/pacientes', pacientes);
+app.use('/api/especialidades', Especialidades);
 export default app;
